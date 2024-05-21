@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <h1>Личный кабинет</h1>
+    <p>Привет, {{ user.username }}!</p>
+    <h2>Дополнительные сведения о пользователе:</h2>
+    <ul>
+        <li>ФИО: {{ user.full_name }}</li>
+        <li>Дата рождения: {{ user.date_of_birth }}</li>
+        <li>Пол: {{ user.gender }}</li>
+        <li>Адрес: {{ user.address }}</li>
+        <li>Контактный номер: {{ user.contact_number }}</li>
+    </ul>
+    <h2>Медицинская карта:</h2>
+    <p>Диагнозы: {{ medical_record.diagnosis }}</p>
+    <p>Рецепты: {{ medical_record.prescription }}</p>
+    <!-- Дополнительные сведения о медицинской карте -->
+</body>
+</html>

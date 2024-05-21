@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Клиника "Созвездие" - Главная</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="http://google.com">Главная</a></li>
+                <li><a href="appointment">Записи на приём</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="{% url 'login' %}">Войти</a></li>
+                <li><a href="profile.html">Кабинет</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Добро пожаловать в приложение Клиники "Созвездие"</h1>
+            <p>Ваш надежный пункт назначения для записей на приём.</p>
+            <a href="{% url 'appointment' %}" class="btn btn-primary">Записаться на приём</a>
+        </div>
+    </section>
+    
+    <section class="services">
+        <div class="container">
+            <h2>Наши Услуги</h2>
+            <div class="service">
+                <img src="{% static 'img/service1.jpg' %}" alt="Service 1">
+                <h3>Экстренная помощь</h3>
+                <p>Наша экстренная медицинская помощь доступна круглосуточно для оказания быстрой и качественной помощи в случае неотложных ситуаций.</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'img/service2.jpg' %}" alt="Service 2">
+                <h3>Специализированные лечения</h3>
+                <p>Мы предлагаем широкий спектр специализированных лечебных процедур и терапий, адаптированных к индивидуальным потребностям каждого пациента.</p>
+            </div>
+            <div class="service">
+                <img src="{% static 'img/service3.jpg' %}" alt="Service 3">
+                <h3>Диагностические услуги</h3>
+                <p>Наши современные диагностические услуги обеспечивают точные и быстрые результаты, помогая вам получить необходимую информацию для эффективного лечения и управления вашим здоровьем.</p>
+            </div>
+        </div>
+    </section>
+    
+    <footer>
+        <p>&copy;2024 Приложение Клиники "Созвездие". Все права защищены.</p>
+    </footer>
+</body>
+</html>
