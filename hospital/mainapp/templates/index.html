@@ -9,17 +9,26 @@
 </head>
 <body>
     <header>
-        <nav>
-            <ul>
-                <li><a href="http://google.com">Главная</a></li>
-                <li><a href="appointment">Записи на приём</a></li>
-                <li><a href="#">О нас</a></li>
-                <li><a href="#">Контакты</a></li>
+    <nav>
+        <ul>
+            <li><a href="{% url 'index' %}">Главная</a></li>
+
+            <li><a href="{% url 'doctors' %}">Врачи</a></li>
+            <li><a href="{% url 'about_us' %}">О нас</a></li>
+            <li><a href="{% url 'schedule' %}">Расписание</a></li>
+            {% if user.is_authenticated %}
+                <li><a href="{% url 'appointment' %}">Записаться на приём</a></li>
+                <li><a href="{% url 'profile' %}">Кабинет</a></li>
+
+            {% else %}
+                <li><a href="{% url 'signup' %}">Регистрация</a></li>
                 <li><a href="{% url 'login' %}">Войти</a></li>
-                <li><a href="profile.html">Кабинет</a></li>
-            </ul>
-        </nav>
-    </header>
+            {% endif %}
+            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+        </ul>
+    </nav>
+</header>
+
     
     <section class="hero">
         <div class="hero-content">

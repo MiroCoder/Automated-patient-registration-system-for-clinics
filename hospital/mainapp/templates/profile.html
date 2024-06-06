@@ -5,22 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Личный кабинет</title>
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 </head>
 <body>
-    <h1>Личный кабинет</h1>
-    <p>Привет, {{ user.username }}!</p>
-    <h2>Дополнительные сведения о пользователе:</h2>
-    <ul>
-        <li>ФИО: {{ user.full_name }}</li>
-        <li>Дата рождения: {{ user.date_of_birth }}</li>
-        <li>Пол: {{ user.gender }}</li>
-        <li>Адрес: {{ user.address }}</li>
-        <li>Контактный номер: {{ user.contact_number }}</li>
-    </ul>
-    <h2>Медицинская карта:</h2>
-    <p>Диагнозы: {{ medical_record.diagnosis }}</p>
-    <p>Рецепты: {{ medical_record.prescription }}</p>
-    <!-- Дополнительные сведения о медицинской карте -->
+    <div class="profile-container">
+        <div class="profile-card">
+            <h1>Личный кабинет</h1>
+            <p>Привет, {{ user.username }}!</p>
+            <img src="/static/img/{{ user.username }}.jpg" alt="Фотография профиля">
+            <div class="profile-details">
+                <h2>Дополнительные сведения о пользователе:</h2>
+                <ul>
+                    <li><strong>ФИО:</strong> {{ additional_info.full_name }}</li>
+                    <li><strong>Дата рождения:</strong> {{ additional_info.birth_date }}</li>
+                    <li><strong>Пол:</strong> {{ additional_info.gender }}</li>
+                    <li><strong>Адрес:</strong> {{ additional_info.location }}</li>
+                    <li><strong>Контактный номер:</strong> {{ additional_info.contact_number }}</li>
+                </ul>
+                <h2>Медицинская карта:</h2>
+                <ul>
+                    <li><strong>Диагнозы:</strong> {{ medical_record.diagnosis }}</li>
+                    <li><strong>Рецепты:</strong> {{ medical_record.prescription }}</li>
+                    <!-- Дополнительные сведения о медицинской карте -->
+                </ul>
+
+                <form action="{% url 'appointment_records' %}" method="get">
+                    <button type="submit">Просмотр записей на прием</button>
+                </form>
+            </div>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit">Выйти</button>
+            </form>
+
+        </div>
+
+    </div>
+
+      <script src="{% static 'js/modal.js' %}"></script>
 </body>
 </html>

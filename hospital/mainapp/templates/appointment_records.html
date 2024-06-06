@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Записи на прием</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/appointment.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <style>
+        body {
+            background-image: url('{% static "img/back3.jpg" %}');
+            background-size: cover;
+            background-position: center;
+            color: #333;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #333
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+            background-color: #f9f9f9;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        th:first-child, td:first-child {
+            padding-left: 20px;
+        }
+        th:last-child, td:last-child {
+            padding-right: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            box-shadow: none;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .delete-btn {
+            background-color: #dc3545;
+            color: white;
+            box-shadow: none;
+        }
+        .delete-btn:hover {
+            background-color: #c82333;
+        }
+        .form-inline {
+            display: flex;
+            align-items: center;
+        }
+        .form-inline button {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Записи на прием</h1>
+        <form action="{% url 'appointment_records' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Добавить запись на прием</button>
+        </form>
+        <table>
+            <thead>
+                <tr>
+                    <th>Дата визита</th>
+                    <th>Время визита</th>
+                    <th>Пациент</th>
+                    <th>Доктор</th>
+                    <th>Причина</th>
+                    <th>Действия</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for visit in visits %}
+                <tr>
+                    <td>{{ visit.visit_date }}</td>
+                    <td>{{ visit.visit_time }}</td>
+                    <td>{{ visit.patient }}</td>
+                    <td>{{ visit.doctor }}</td>
+                    <td>{{ visit.reason }}</td>
+                    <td>
+                        <form action="{% url 'appointment_records' %}" method="post" class="form-inline">
+                            {% csrf_token %}
+                            <input type="hidden" name="visit_id" value="{{ visit.id }}">
+                            <button type="submit" name="delete_visit" class="delete-btn">Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#id_visit_date").datepicker({
+                dateFormat: 'yy-mm-dd',
+                changeMonth: true,
+                changeYear: true,
+            });
+        });
+    </script>
+</body>
+</html>

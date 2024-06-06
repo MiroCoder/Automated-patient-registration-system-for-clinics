@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+     <div class="signup-container">
+        <div class="form-wrapper">
+            <h2>Регистрация</h2>
+            <form method="post">
+                {% csrf_token %}
+                <label for="id_username">Имя пользователя:</label>
+                {{ form.username }}
+                <label for="id_email">Email:</label>
+                {{ form.email }}
+                <label for="id_password1">Пароль:</label>
+                {{ form.password1 }}
+                <label for="id_password2">Подтверждение пароля:</label>
+                {{ form.password2 }}
+                <button type="submit">Зарегистрироваться</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
+

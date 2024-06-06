@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Загрузка фотографии</title>
+</head>
+<body>
+
+<h2>Загрузка фотографии</h2>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.photo }}
+    <button type="submit">Загрузить</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Расписание</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/schedule.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Расписание</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>День недели</th>
+                    <th>Доктора</th>
+                    <th>Начало</th>
+                    <th>Конец</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for schedule in schedules %}
+                    <tr>
+                        <td>{{ schedule.day_of_week }}</td>
+                        <td>
+                            {% for doctor in schedule.doctor.all %}
+                                {{ doctor.name }}<br>
+                            {% endfor %}
+                        </td>
+                        <td>{{ schedule.start_time|time:"H:i" }}</td>
+                        <td>{{ schedule.end_time|time:"H:i" }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
