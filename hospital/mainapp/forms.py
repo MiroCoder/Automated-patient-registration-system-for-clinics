@@ -1,3 +1,5 @@
+from collections import Counter
+
 from django import forms
 
 from .models import DoctorModel, VisitModel
@@ -6,6 +8,7 @@ from django.contrib.auth.forms import UserCreationForm
 from .models import ProfileModel
 from django.contrib.auth.models import User
 from .models import ScheduleModel
+from django.db.models import Case, When
 
 class SignUpForm(UserCreationForm):
     email = forms.EmailField(required=True)
@@ -104,8 +107,25 @@ class VisitForm(forms.ModelForm):
 
     def __init__(self, *args, **kwargs):
         user = kwargs.pop('user', None)
-        super().__init__(*args, **kwargs)
+        super(VisitForm, self).__init__(*args, **kwargs)
+
+
         if user:
+            user_profile = user.profilemodel
+            visits = VisitModel.objects.filter(patient=user_profile)
+            doctor_counts = Counter(visit.doctor for visit in visits)
+
+            sorted_doctors = sorted(doctor_counts.keys(), key=lambda doctor: -doctor_counts[doctor])
+            sorted_doctor_ids = [doctor.id for doctor in sorted_doctors]
+
+            remaining_doctors = DoctorModel.objects.exclude(id__in=sorted_doctor_ids)
+            preserved_order = Case(*[When(id=doctor_id, then=pos) for pos, doctor_id in enumerate(sorted_doctor_ids)])
+
+            sorted_and_all_doctors = DoctorModel.objects.filter(id__in=sorted_doctor_ids) | remaining_doctors
+
+
+            self.fields['doctor'].queryset = sorted_and_all_doctors
+
             self.fields['patient'].initial = user.profilemodel
             self.fields['patient'].queryset = ProfileModel.objects.filter(user=user)
             self.fields['patient'].widget = forms.HiddenInput()

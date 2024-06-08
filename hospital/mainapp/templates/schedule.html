@@ -25,7 +25,7 @@
                         <td>{{ schedule.day_of_week }}</td>
                         <td>
                             {% for doctor in schedule.doctor.all %}
-                                {{ doctor.name }}<br>
+                                {{ doctor.name }} ({{ doctor.specialty }})<br>
                             {% endfor %}
                         </td>
                         <td>{{ schedule.start_time|time:"H:i" }}</td>
