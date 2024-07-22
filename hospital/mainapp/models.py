@@ -1,26 +1,9 @@
-import uuid
-
 from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 import uuid
 import datetime
-import random
-
-#
-# class DoctorModel(models.Model):
-#     id = models.UUIDField(primary_key=True, default=uuid.uuid4)
-#     name = models.CharField(max_length=100, verbose_name="ФИО")
-#     specialty = models.CharField(max_length=100, verbose_name="Специальность")
-#
-#     class Meta:
-#         verbose_name = 'Доктор'
-#         verbose_name_plural = 'Доктора'
-#
-#     def __str__(self):
-#         return str(self.__dict__)
-
 
 
 class ProfileModel(models.Model):
@@ -51,9 +34,6 @@ def create_user_profile(sender, instance, created, **kwargs):
     if created:
         a = ProfileModel.objects.create(user=instance)
         a.save()
-# @receiver(post_save, sender=User)
-# def save_user_profile(sender, instance, **kwargs):
-#     instance.ProfileModel.save()
 
 
 class DoctorModel(models.Model):

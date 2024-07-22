@@ -1,11 +1,11 @@
-/* Reset CSS */
+
 html, body, header, nav, ul, li, a, p, h1, h2, h3, img, footer {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Global Styles */
+
 body {
     font-family: 'Roboto', sans-serif;
     line-height: 1.6;

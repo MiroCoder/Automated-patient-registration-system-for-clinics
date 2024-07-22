@@ -1,7 +1,5 @@
 from collections import Counter
-
 from django import forms
-
 from .models import DoctorModel, VisitModel
 from .models import AppointmentModel
 from django.contrib.auth.forms import UserCreationForm

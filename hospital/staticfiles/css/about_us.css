@@ -1,0 +1,56 @@
+/* Reset CSS */
+html, body, header, nav, ul, li, a, p, h1, h2, h3, img, footer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    background-image: url('/static/img/back3.jpg');
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Add a semi-transparent background color */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+h2 {
+    color: #333333;
+    margin-top: 20px;
+}
+
+p, ul {
+    color: #333333;
+    margin-bottom: 10px;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.image-gallery {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.image-gallery img {
+    max-width: 30%;
+    border-radius: 5px;
+}

@@ -1,0 +1,105 @@
+/* Reset CSS */
+html, body, header, nav, ul, li, a, p, h1, h2, h3, img, footer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+    background-image: url('/static/img/back3.jpg');
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333333;
+}
+
+.social-links {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 10px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.social-links a:hover {
+    background-color: #0056b3;
+}
+
+.phone {
+    margin-top: 20px;
+    text-align: center;
+    color: #333333;
+    font-size: 18px;
+}
+
+.map-container {
+    max-width: 300px;
+    margin: 20px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+}
+
+.map-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+
+.map-text {
+    text-align: center;
+}
+
+.map-container h2 {
+    margin-top: 10px;
+}
+
+
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+}
+
+.back-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ff6b6b;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.back-button:hover {
+    background-color: #ff4d4d;
+}
+
