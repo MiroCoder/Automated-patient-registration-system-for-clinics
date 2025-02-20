@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вход</title>
+    <title>Log in</title>
     {% load static %}
     <style>
         body {
@@ -68,11 +68,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>Вход</h1>
+        <h1>Log in</h1>
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Войти</button>
+            <button type="submit">Log in</button>
         </form>
     </div>
 </body>

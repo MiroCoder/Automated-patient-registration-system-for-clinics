@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Запись на прием</title>
+    <title>Appointment</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/appointment.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
@@ -46,11 +46,11 @@
 </head>
 <body>
     <div class="container">
-        <h1>Запись на прием</h1>
+        <h1>Make an appointment</h1>
         <form action="{% url 'appointment' %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Записаться на прием</button>
+            <button type="submit">Make an appointment</button>
         </form>
     </div>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

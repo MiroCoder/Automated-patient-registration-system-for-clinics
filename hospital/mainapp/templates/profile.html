@@ -3,38 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личный кабинет</title>
+    <title>Profile</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/profile.css' %}">
 </head>
 <body>
     <div class="profile-container">
         <div class="profile-card">
-            <h1>Личный кабинет</h1>
-            <p>Привет, {{ user.username }}!</p>
+            <h1>Profile</h1>
+            <p>Hello, {{ user.username }}!</p>
             <img src="/static/img/{{ user.username }}.jpg" alt="Фотография профиля">
             <div class="profile-details">
-                <h2>Дополнительные сведения о пользователе:</h2>
-                <ul>
-                    <li><strong>ФИО:</strong> {{ additional_info.full_name }}</li>
-                    <li><strong>Дата рождения:</strong> {{ additional_info.birth_date }}</li>
-                    <li><strong>Пол:</strong> {{ additional_info.gender }}</li>
-                    <li><strong>Адрес:</strong> {{ additional_info.location }}</li>
-                    <li><strong>Контактный номер:</strong> {{ additional_info.contact_number }}</li>
-                </ul>
-                <h2>Медицинская карта:</h2>
-                <ul>
-                    <li><strong>Диагнозы:</strong> {{ medical_record.diagnosis }}</li>
-                    <li><strong>Рецепты:</strong> {{ medical_record.prescription }}</li>
-                </ul>
+                <h2>Additional User Information:</h2>
+                    <ul>
+                        <li><strong>Full Name:</strong> {{ additional_info.full_name }}</li>
+                        <li><strong>Date of Birth:</strong> {{ additional_info.birth_date }}</li>
+                        <li><strong>Gender:</strong> {{ additional_info.gender }}</li>
+                        <li><strong>Address:</strong> {{ additional_info.location }}</li>
+                        <li><strong>Contact Number:</strong> {{ additional_info.contact_number }}</li>
+                    </ul>
+
+                    <h2>Medical Record:</h2>
+                    <ul>
+                        <li><strong>Diagnoses:</strong> {{ medical_record.diagnosis }}</li>
+                        <li><strong>Prescriptions:</strong> {{ medical_record.prescription }}</li>
+                    </ul>
+
 
                 <form action="{% url 'appointment_records' %}" method="get">
-                    <button type="submit">Просмотр записей на прием</button>
+                    <button type="submit">Watch my appointments</button>
                 </form>
             </div>
             <form action="{% url 'logout' %}" method="post">
                 {% csrf_token %}
-                <button type="submit">Выйти</button>
+                <button type="submit">Log out</button>
             </form>
 
         </div>

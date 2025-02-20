@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Записи на прием</title>
+    <title>My appointments</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'css/appointment.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
@@ -83,21 +83,22 @@
 </head>
 <body>
     <div class="container">
-        <h1>Записи на прием</h1>
+        <h1>Appointments</h1>
         <form action="{% url 'appointment_records' %}" method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Добавить запись на прием</button>
+            <button type="submit">Add a new appointment</button>
         </form>
         <table>
             <thead>
                 <tr>
-                    <th>Дата визита</th>
-                    <th>Время визита</th>
-                    <th>Пациент</th>
-                    <th>Доктор</th>
-                    <th>Причина</th>
-                    <th>Действия</th>
+                    <th>Visit Date</th>
+                    <th>Visit Time</th>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Reason</th>
+                    <th>Actions</th>
+
                 </tr>
             </thead>
             <tbody>
@@ -112,7 +113,7 @@
                         <form action="{% url 'appointment_records' %}" method="post" class="form-inline">
                             {% csrf_token %}
                             <input type="hidden" name="visit_id" value="{{ visit.id }}">
-                            <button type="submit" name="delete_visit" class="delete-btn">Удалить</button>
+                            <button type="submit" name="delete_visit" class="delete-btn">Cancel</button>
                         </form>
                     </td>
                 </tr>
