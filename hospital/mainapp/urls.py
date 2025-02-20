@@ -1,9 +1,7 @@
-from django.contrib import admin
-from django.urls import path, include
+from django.urls import path
 from . import views
 from django.contrib.auth import views as auth_views
-from django.conf import settings
-from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -18,7 +16,5 @@ urlpatterns = [
     path('doctors/', views.doctors, name='doctors'),
     path('about/', views.about_us, name='about_us'),
     path('schedule/', views.schedule_view, name='schedule'),
-
-
 ]
 

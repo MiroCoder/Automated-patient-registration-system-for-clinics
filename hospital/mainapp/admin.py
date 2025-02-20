@@ -1,10 +1,6 @@
 from django.contrib import admin
-from django.forms.models import BaseInlineFormSet
-from django.forms import formset_factory
-from django.contrib.admin.widgets import FilteredSelectMultiple
-from . import forms
 from .models import DoctorModel, ProfileModel,  MedicalRecordModel, ScheduleModel, VisitModel
-from django.db import models
+
 
 class DoctorAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'specialty']

@@ -10,6 +10,7 @@ from .forms import SignUpForm, UserForm, ScheduleForm, VisitForm
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
+
 def signup(request):
     if request.method == 'POST':
         form = SignUpForm(request.POST)
@@ -67,6 +68,7 @@ def login_view(request):
     else:
         form = AuthenticationForm()
     return render(request, 'login.html', {'form': form})
+
 
 
 @login_required

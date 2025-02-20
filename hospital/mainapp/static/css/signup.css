@@ -1,0 +1,91 @@
+/* Reset CSS */
+html, body, header, nav, ul, li, a, p, h1, h2, h3, img, footer {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Registration Form Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-image: url('/static/img/back3.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.signup-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.form-wrapper {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2em 3em;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+    color: #333;
+}
+
+.form-wrapper h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5em;
+    font-weight: 500;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form p {
+    margin-bottom: 1.5em;
+    text-align: left;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 0;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border-color: #007bff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    padding: 12px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    margin-top: 1em;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
